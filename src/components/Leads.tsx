@@ -37,7 +37,7 @@ const Leads: React.FC<{ searchTerm?: string }> = ({ searchTerm }) => {
         const updatedLead = await leadService.updateLead(editingLead.id, leadData as UpdateLeadData);
         setLeads(leads.map(lead => (lead.id === editingLead.id ? updatedLead : lead)));
       } else {
-        const newLead = await leadService.createLead(leadData as CreateLead-Data);
+        const newLead = await leadService.createLead(leadData as CreateLeadData);
         setLeads([...leads, newLead]);
       }
       setIsModalOpen(false);

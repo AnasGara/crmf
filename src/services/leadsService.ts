@@ -66,7 +66,11 @@ class LeadService {
 
   async createLead(leadData: CreateLeadData): Promise<Lead> {
     try {
-      const response = await httpClient.post<Lead>('/leads', leadData);
+      const currentUser = authService.getStoredUser();
+      if (!currentUser || !currentUser.organisation_id) {
+        throw new Error('User not authenticated or no organization');
+      }
+      const response = await httpClient.post<Lead>(`/leads`, leadData);
       if (response.success && response.data) {
         return response.data;
       }
