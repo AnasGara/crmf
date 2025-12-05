@@ -131,7 +131,7 @@ function App() {
   return (
     <LanguageProvider>
       <OrganizationProvider>
-        {/* <NotificationProvider> */}
+        <NotificationProvider>
           <div className="min-h-screen bg-mesh flex">
             <Sidebar activeView={activeView} onViewChange={setActiveView} />
             <div className="flex-1 flex flex-col lg:ml-0">
@@ -149,7 +149,7 @@ function App() {
               </main>
             </div>
           </div>
-        {/* </NotificationProvider> */}
+        </NotificationProvider>
       </OrganizationProvider>
     </LanguageProvider>
   );
